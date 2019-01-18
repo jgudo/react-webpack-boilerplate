@@ -11,9 +11,14 @@ Install the dependencies
 ```sh
 $ npm install
 ```
+Yarn
+```sh
+$ yarn install
+```
+
 
 ### Run the development server
-Dev server is now ready and can be accessed in browser in [localhost](localhost:8080)
+Dev server is now ready and can be accessed in browser in <http://localhost:8080>
 
 ```sh
 $ npm run dev-server
