@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const path = require('path');
 
 const CSSExtract = new ExtractTextPlugin('css/app.css');
@@ -51,6 +52,7 @@ module.exports = {
     extensions: ['*', '.js', '.jsx']
   },
   plugins: [
+    new CleanWebpackPlugin(['public']),
     CSSExtract
   ]
 };

@@ -5,6 +5,7 @@ const path = require('path');
 const baseConfig = require('./base.config.js');
 
 module.exports = merge(baseConfig, {
+  mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
     contentBase: path.join(__dirname, '../public'),
