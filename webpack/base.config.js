@@ -1,17 +1,17 @@
-/* eslint-disable import/no-extraneous-dependencies */
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const HtmlPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const path = require('path');
+
+const resolve = (dir) => {
+  return path.join(__dirname, '..', dir);
+};
 
 module.exports = {
   entry: [
-    '@babel/polyfill', 
-    path.resolve(__dirname, '../src/client/index.js')
+    '@babel/polyfill', resolve('src/client/index.js')
   ],
   output: {
-    path: path.join(__dirname, '../public'),
-    filename: '[name].bundle.js',
+    path: resolve('dist'),
+    filename: 'js/[name].bundle.js',
     publicPath: '/'
   },
   module: {
@@ -41,16 +41,26 @@ module.exports = {
       use: [{
         loader: 'file-loader',
         options: {
+          limit: 10000,
           outputPath: 'images',
-          name: '[name][hash].[ext]'
+          name: '[name].[hash].[ext]'
         }
       }]
+    }, {
+      test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+      loader: 'file-loader',
+      options: {
+        limit: 10000,
+        name: '[name].[hash].[ext]',
+        outputPath: 'media'
+      }
     }, {
       test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
       use: [{
         loader: 'file-loader',
         options: {
-          name: '[name].[ext]',
+          limit: 10000,
+          name: '[name].[hash].[ext]',
           outputPath: 'fonts'
         }
       }]
@@ -58,20 +68,15 @@ module.exports = {
   }, 
   resolve: {
     modules: [
-      path.resolve(__dirname, '../src'),
+      resolve('src'),
       'node_modules'
     ],
     extensions: ['*', '.js', '.jsx']
   },
   plugins: [
-    new CleanWebpackPlugin(['public']),
     new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[name]_[id].css'
-    }),
-    new HtmlPlugin({
-      title: 'Boilerplate',
-      template: path.resolve(__dirname, '../public/index.html')
+      filename: 'css/[name].css',
+      chunkFilename: 'css/[name].[contenthash]_[id].css'
     })
   ]
 };

@@ -1,7 +1,7 @@
 # React With Webpack Boilerplate
 
 ### Version
-1.0.0
+1.2.0
 
 
 ### Installation

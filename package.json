@@ -1,11 +1,17 @@
 {
-  "name": "boilerplate",
-  "version": "1.0.0",
+  "name": "react-webpack-boilerplate",
+  "version": "1.2.0",
   "main": "index.js",
-  "author": "Gudo",
+  "author": "Julius Guevarra",
+  "keywords": [
+    "react-webpack",
+    "boilerplate",
+    "react-webpack-boilerplate",
+    "react-boilerplate"
+  ],
   "license": "MIT",
   "scripts": {
-    "serve": "live-server public/",
+    "serve": "live-server dist/",
     "build": "cross-env NODE_ENV=production webpack --config webpack/prod.config.js",
     "dev-server": "webpack-dev-server --open --config webpack/dev.config.js"
   },
@@ -19,6 +25,7 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "clean-webpack-plugin": "^1.0.1",
+    "copy-webpack-plugin": "^5.0.2",
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.0",
     "eslint": "^5.14.0",
