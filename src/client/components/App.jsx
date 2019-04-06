@@ -1,11 +1,9 @@
 import React from 'react';
 
-import img from '../images/square.jpg';
-
 const App = () => (
   <div>
     <h1>React Webpack Boilerplate</h1>
-    <img src={img} alt="Meme"/>
+    <p>Edit App component in src folder to get started.</p>
   </div>
 );
 
